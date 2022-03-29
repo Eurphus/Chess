@@ -8,15 +8,15 @@ public class Main {
     // Declare Variables
     //
     static String[][] chessBoard = {
-            {"A", "♜", "♞", "♝", "♛", "♚", "♝", "♞", "♜"},
-            {"B", "#", "#", "♟", "♟", "♟", "♟", "♟", "#"},
-            {"C", "#", "#", "#", "#", "#", "#", "#", "#"},
-            {"D", "#", "#", "#", "#", "#", "#", "#", "#"},
-            {"E", "#", "#", "#", "#", "#", "#", "#", "#"},
-            {"F", "#", "#", "#", "#", "#", "#", "#", "#"},
-            {"G", "#", "#", "♙", "♙", "♙", "♙", "#", "#"},
-            {"H", "♖", "♘", "♗", "♕", "♔", "♗", "♘", "♖"},
-            {" ", "1", "2", "3", "4", "5", "6", "7", "8"}
+            {" ", "A", "B", "C", "D", "E", "F", "G", "H"},
+            {"1", "♜", "♞", "♝", "♛", "♚", "♝", "♞", "♜"},
+            {"2", "#", "#", "♟", "#", "♟", "♟", "♟", "#"},
+            {"3", "#", "#", "#", "#", "#", "#", "#", "#"},
+            {"4", "#", "#", "#", "#", "#", "#", "#", "#"},
+            {"5", "#", "#", "#", "#", "#", "#", "#", "#"},
+            {"6", "#", "#", "#", "#", "#", "#", "#", "#"},
+            {"7", "#", "#", "♙", "♙", "♙", "♙", "#", "#"},
+            {"8", "♖", "♘", "♗", "♕", "♔", "♗", "♘", "♖"}
     };
 
     // Lists/arrays of important items
@@ -54,6 +54,7 @@ public class Main {
         if (blackPiecesList.contains(chessBoard[row + 1][column - 1])) {
             moveList.add(rowList.get(row + 1) + (column - 1));
         }
+        System.out.println(moveList);
         return moveList;
     }
     static List<String> moveBlackPawn(int column, int row) {
@@ -64,12 +65,13 @@ public class Main {
         if(row == 6 && chessBoard[row-2][column].equals("#")) {
             moveList.add(rowList.get(row-2) + (column));
         }
-        if(blackPiecesList.contains(chessBoard[row-1][column-1])) {
+        if(whitePiecesList.contains(chessBoard[row-1][column-1])) {
             moveList.add(rowList.get(row-1) + (column-1));
         }
-        if(blackPiecesList.contains(chessBoard[row-1][column+1])) {
+        if(whitePiecesList.contains(chessBoard[row-1][column+1])) {
             moveList.add(rowList.get(row-1) + (column+1));
         }
+        System.out.println(moveList);
         return moveList;
     }
 
@@ -124,6 +126,7 @@ public class Main {
             }
             moveList.add(rowList.get(i) + column);
         }
+        System.out.println(moveList);
         return moveList;
     }
 
@@ -144,6 +147,63 @@ public class Main {
                 System.out.println("\n" + vertical + "\n" + horizontal);
                 if(!playerArray.contains(chessBoard[horizontal][vertical])) moveList.add(rowList.get(horizontal) + vertical);
             }
+        }
+        System.out.println(moveList);
+        return moveList;
+    }
+
+    // Bishop Right Up
+    static List<String> moveBishop(int column, int row, String player) {
+        List<String> moveList = new ArrayList<>();
+
+        List<String> playerArray = whitePiecesList;
+        if(player.equals("Black")) playerArray = blackPiecesList;
+        List<String> enemyArray = blackPiecesList;
+        if(player.equals("Black"))enemyArray = whitePiecesList;
+
+        // Check Right Up of Bishop
+        for(int i=column+1, q=row+1; (i <= 8 && q <= 7); i++, q++) {
+            if(playerArray.contains(chessBoard[q][i])) {
+                break;
+            } else if(enemyArray.contains(chessBoard[q][i])) {
+                moveList.add(rowList.get(q) + i);
+                break;
+            }
+            moveList.add(rowList.get(q) + i);
+        }
+
+        // Check Left Down Bishop
+        for(int i=column-1, q=row-1; (i > 0 && q >= 0); i--, q--) {
+            if(playerArray.contains(chessBoard[q][i])) {
+                break;
+            } else if(enemyArray.contains(chessBoard[q][i])) {
+                moveList.add(rowList.get(q) + i);
+                break;
+            }
+            moveList.add(rowList.get(q) + i);
+        }
+
+        // Check Down Right
+        for(int i=column-1, q=row+1; (i > 0 && q <= 7); i--, q++) {
+            if(playerArray.contains(chessBoard[q][i])) {
+                break;
+            } else if(enemyArray.contains(chessBoard[q][i])) {
+                moveList.add(rowList.get(q) + i);
+                break;
+            }
+            moveList.add(rowList.get(q) + i);
+        }
+
+        // Check Left Up Bishop
+        for(int i=column+1, q=row-1; (i <= 8 && q >= 0); i++, q--) {
+            System.out.println(i + " " + q);
+            if(playerArray.contains(chessBoard[q][i])) {
+                break;
+            } else if(enemyArray.contains(chessBoard[q][i])) {
+                moveList.add(rowList.get(q) + i);
+                break;
+            }
+            moveList.add(rowList.get(q) + i);
         }
         System.out.println(moveList);
         return moveList;
@@ -250,6 +310,8 @@ public class Main {
                 if(moveCastle(oldColumn, oldRow, player).contains((rowList.get(row) + column))) allowed=true;
             } else if (piece.equals("♞") || piece.equals("♘")) {
                 if(moveHorse(oldColumn, oldRow, player).contains(rowList.get(row) + column)) allowed=true;
+            } else if (piece.equals("♝") || piece.equals("♗")) {
+                if(moveBishop(oldColumn, oldRow, player).contains(rowList.get(row) + column)) allowed=true;
             }
 
             if (allowed) {
