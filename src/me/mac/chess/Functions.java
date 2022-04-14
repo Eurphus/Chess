@@ -50,13 +50,9 @@ public class Functions {
         return moveList;
     }
     public static boolean checkMateDetector(String[][] board, String player, String kingPosition) {
-        String[][] boardTemp = Arrays.stream(board).map(String[]::clone).toArray(String[][]::new);
+        String[][] boardTemp;
         String enemy = "Black";
-        String kingPiece = "♚";
-        if(player.equals("Black")) {
-            enemy="White";
-            kingPiece = "♔";
-        }
+        if(player.equals("Black")) enemy="White";
 
         List<String> moveList = allMoves(board, enemy);
         String tempPiece;
@@ -73,7 +69,6 @@ public class Functions {
                         case "♞" -> moveList = moveHorse(i, q, player, board);
                         case "♝" -> moveList = moveBishop(i, q, player, board);
                         case "♛" -> moveList = moveQueen(i, q, player, board);
-                        case "♚" -> moveList = moveKing(i, q, player, board);
                     }
                 } else if (player.equals("Black")) {
                     if (!blackPiecesList.contains(tempPiece)) continue;
@@ -83,21 +78,14 @@ public class Functions {
                         case "♘" -> moveList = moveHorse(i, q, player, board);
                         case "♗" -> moveList = moveBishop(i, q, player, board);
                         case "♕" -> moveList = moveQueen(i, q, player, board);
-                        case "♔" -> moveList = moveKing(i, q, player, board);
                     }
                 }
                 boardTemp = Arrays.stream(board).map(String[]::clone).toArray(String[][]::new);
                 for (String s : moveList) {
                     boardTemp[Integer.parseInt(s.substring(1, 2))][rowList.indexOf(s.substring(0, 1))] = tempPiece;
                     boardTemp[i][q] = "#";
-                    if(tempPiece.equals(kingPiece)) {
-                        kingPosition = s;
-                    } else if(rowList.indexOf(s.substring(0, 1)) != kingRow || Integer.parseInt(kingPosition.substring(1, 2)) != kingRow) {
-                        kingPosition = rowList.get(kingRow) + kingColumn;
-                    }
                     if (!allMoves(boardTemp, enemy).contains(kingPosition)) {
                         return false;
-                        break;
                     } else {
                         boardTemp = Arrays.stream(board).map(String[]::clone).toArray(String[][]::new);
                     }

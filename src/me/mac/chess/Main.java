@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
+import static me.mac.chess.Functions.checkMateDetector;
 import static me.mac.chess.pieces.Bishop.moveBishop;
 import static me.mac.chess.pieces.Castle.moveCastle;
 import static me.mac.chess.pieces.Horse.moveHorse;
@@ -18,29 +19,19 @@ public class Main {
     //
     // Declare Variables
     //
-    static String[][] chessBoard = {
-            {" ", "A", "B", "C", "D", "E", "F", "G", "H"},
-            {"1", "♜", "#", "#", "#", "♚", "#", "#", "#"},
-            {"2", "#", "#", "#", "#", "#", "#", "#", "#"},
-            {"3", "#", "#", "#", "#", "#", "#", "#", "#"},
-            {"4", "♜", "♛", "#", "#", "#", "#", "#", "#"},
-            {"5", "#", "#", "#", "#", "#", "♔", "#", "#"},
-            {"6", "♜", "#", "#", "#", "#", "#", "#", "#"},
-            {"7", "#", "#", "#", "#", "#", "#", "#", "#"},
-            {"8", "#", "#", "♕", "#", "#", "#", "#", "#"}
-    };
 
-//    static String[][] chessBoard = {
-//            {" ", "A", "B", "C", "D", "E", "F", "G", "H"},
-//            {"1", "♜", "♞", "♝", "♛", "♚", "♝", "♞", "♜"},
-//            {"2", "#", "#", "♟", "#", "♟", "♟", "♟", "#"},
-//            {"3", "#", "#", "#", "#", "#", "#", "#", "#"},
-//            {"4", "#", "#", "#", "#", "#", "#", "#", "#"},
-//            {"5", "#", "#", "#", "♕", "#", "#", "#", "#"},
-//            {"6", "#", "#", "#", "♔", "#", "#", "#", "#"},
-//            {"7", "#", "#", "♙", "♙", "♙", "♙", "#", "#"},
-//            {"8", "♖", "♘", "♗", "#", "#", "♗", "♘", "♖"}
-//    };
+    static String[][] chessBoard = {
+            {" ", "A", "B", "C", "D", "E", "F", "G", "H", " "},
+            {"1", "♜", "♞", "♝", "♛", "♚", "♝", "♞", "♜", "1"},
+            {"2", "♟", "♟", "♟", "♟", "♟", "♟", "♟", "♟", "2"},
+            {"3", "#", "#", "#", "#", "#", "#", "#", "#", "3"},
+            {"4", "#", "#", "#", "#", "#", "#", "#", "#", "4"},
+            {"5", "#", "#", "#", "♕", "#", "#", "#", "#", "5"},
+            {"6", "#", "#", "#", "♔", "#", "#", "#", "#", "6"},
+            {"7", "♙", "♙", "♙", "♙", "♙", "♙", "♙", "♙", "7"},
+            {"8", "♖", "♘", "♗", "♔", "♕", "♗", "♘", "♖", "8"},
+            {" ", "A", "B", "C", "D", "E", "F", "G", "H", " "}
+    };
 
     // Lists/arrays of important items
     public static List<String> whitePiecesList = Arrays.asList("♟", "♜", "♞", "♝", "♛", "♚");
@@ -52,7 +43,7 @@ public class Main {
     static String input = "null";
     static int row = -1, column = -1, oldRow = -1, oldColumn = -1;
     static String piece = "", player = "White", enemy = "Black", tempRow = "";
-    static Boolean allowed = false, active = true;
+    static Boolean allowed = false;
 
 
     public static void main(String[] args) {
@@ -87,12 +78,13 @@ public class Main {
             }
 
             input = scan.nextLine().toUpperCase();
-            if (input.equals("") || input.length() != 2) {
-                System.out.println("Wrong Input");
-                continue;
-            } else if (input.equals("Q") && action.equals("Move")) {
+            // Allow to change piece in use by pressing Q
+            if (input.equals("Q") && action.equals("Move")) {
                 System.out.println("\nMoving reset...");
                 action = "Pick";
+                continue;
+            } else if (input.length() != 2) {
+                System.out.println("Wrong Input");
                 continue;
             }
             // Isolate inputs
@@ -145,23 +137,37 @@ public class Main {
             } else if (action.equals("Move")) allowed = false;
 
             // White Pawn
-            if (piece.equals("♟") || piece.equals("♙")) {
-                if (movePawn(oldColumn, oldRow, player, chessBoard).contains((rowList.get(row) + column)))
-                    allowed = true;
-            } else if (piece.equals("♜") || piece.equals("♖")) {
-                if (moveCastle(oldColumn, oldRow, player, chessBoard).contains((rowList.get(row) + column)))
-                    allowed = true;
-            } else if (piece.equals("♞") || piece.equals("♘")) {
-                if (moveHorse(oldColumn, oldRow, player, chessBoard).contains(rowList.get(row) + column))
-                    allowed = true;
-            } else if (piece.equals("♝") || piece.equals("♗")) {
-                if (moveBishop(oldColumn, oldRow, player, chessBoard).contains(rowList.get(row) + column))
-                    allowed = true;
-            } else if (piece.equals("♛") || piece.equals("♕")) {
-                if (moveQueen(oldColumn, oldRow, player, chessBoard).contains(rowList.get(row) + column))
-                    allowed = true;
-            } else if (piece.equals("♚") || piece.equals("♔")) {
-                if (moveKing(oldColumn, oldRow, player, chessBoard).contains(rowList.get(row) + column)) allowed = true;
+            switch (piece) {
+                case "♟":
+                case "♙":
+                    if (movePawn(oldColumn, oldRow, player, chessBoard).contains((rowList.get(row) + column)))
+                        allowed = true;
+                    break;
+                case "♜":
+                case "♖":
+                    if (moveCastle(oldColumn, oldRow, player, chessBoard).contains((rowList.get(row) + column)))
+                        allowed = true;
+                    break;
+                case "♞":
+                case "♘":
+                    if (moveHorse(oldColumn, oldRow, player, chessBoard).contains(rowList.get(row) + column))
+                        allowed = true;
+                    break;
+                case "♝":
+                case "♗":
+                    if (moveBishop(oldColumn, oldRow, player, chessBoard).contains(rowList.get(row) + column))
+                        allowed = true;
+                    break;
+                case "♛":
+                case "♕":
+                    if (moveQueen(oldColumn, oldRow, player, chessBoard).contains(rowList.get(row) + column))
+                        allowed = true;
+                    break;
+                case "♚":
+                case "♔":
+                    if (moveKing(oldColumn, oldRow, player, chessBoard).contains(rowList.get(row) + column))
+                        allowed = true;
+                    break;
             }
             if (allowed) {
                 String kingPiece = "♚";
@@ -176,7 +182,7 @@ public class Main {
                     kingPosition = rowList.get(kingRow) + kingColumn;
                 }
 
-                if (kingPiece.equals("")) {
+                if (kingPosition.equals("")) {
                     for (int i = 0; i < chessBoard.length; i++) {
                         for (int q = 0; q < chessBoard[i].length; q++) {
                             if (chessBoard[q][i].equals(kingPiece)) {
@@ -260,30 +266,22 @@ public class Main {
                 //
 
                 List<String> moveList = allMoves(chessBoard, enemy);
-                boolean checkMate = false;
 
                 // Only run if the King is in check
                 if (moveList.contains(kingPosition)) {
-                    String tempPiece = "";
-
                     // Check if king is unable to move due to check
-                    int count = allPlayerKingMoves.size()-1;
+                    int count = allPlayerKingMoves.size() - 1;
                     for (String value : moveList) {
                         if (allPlayerKingMoves.contains(value)) count--;
                     }
-
-                    // If can't move, assume checkMated until proven otherwise.
-                    if(count != 0) continue;
-                    checkMateDetector();
+                    if (count == 0 && checkMateDetector(chessBoard, player, kingPosition)) {
+                        System.out.println("\n\n\n\n\nGame is over! " + player + " has won!\n Good Game!");
+                        break;
+                    }
                 }
-
-                if (checkMate) {
-                    System.out.println("\n\n\n\n\nGame is over! " + player + " has won!\n Good Game!");
-                    break;
-                }
-                } else {
-                    System.out.println("Invalid Move! Please try again");
-                }
+            } else {
+                System.out.println("Invalid Move! Please try again");
             }
         }
     }
+}
