@@ -6,15 +6,13 @@ import java.util.List;
 import static me.mac.chess.Main.*;
 
 public class Bishop {
-    public static List<String> moveBishop(int column, int row, String player, String[][] board) {
+    public static List<String> moveBishop(int column, int row, String player, String[]... board) {
         List<String> moveList = new ArrayList<>();
 
-        List<String> playerArray = whitePiecesList;
-        if (player.equals("Black")) playerArray = blackPiecesList;
-        List<String> enemyArray = blackPiecesList;
-        if (player.equals("Black")) enemyArray = whitePiecesList;
+        List<String> playerArray = player.equals("Black") ? blackPiecesList : whitePiecesList;
+        List<String> enemyArray = player.equals("Black") ? whitePiecesList : blackPiecesList;
 
-        // Bishop Diagonal Up Right
+        /* Bishop Diagonal Up Right */
         for (int i = column + 1, q = row + 1; (i <= 8 && q <= 8); i++, q++) {
             if (playerArray.contains(board[i][q])) {
                 break;

@@ -9,8 +9,7 @@ public class King {
     public static List<String> moveKing(int column, int row, String player, String[][] board) {
         List<String> moveList = new ArrayList<>();
 
-        List<String> playerArray = whitePiecesList;
-        if (player.equals("Black")) playerArray = blackPiecesList;
+        List<String> playerArray = (player.equals("Black")) ? blackPiecesList : whitePiecesList;
 
         int[][] combinations = {{0, 1}, {1, 0}, {-1, 0}, {0, -1}, {1, 1}, {-1, 1}, {-1, -1}, {1, -1}};
         int horizontal, vertical;
@@ -22,7 +21,6 @@ public class King {
                     moveList.add(rowList.get(horizontal) + vertical);
             }
         }
-
         return moveList;
     }
 }

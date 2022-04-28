@@ -5,7 +5,6 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
-import static me.mac.chess.Functions.checkMateDetector;
 import static me.mac.chess.pieces.Bishop.moveBishop;
 import static me.mac.chess.pieces.Castle.moveCastle;
 import static me.mac.chess.pieces.Horse.moveHorse;
@@ -13,6 +12,7 @@ import static me.mac.chess.pieces.King.moveKing;
 import static me.mac.chess.pieces.Pawn.movePawn;
 import static me.mac.chess.pieces.Queen.moveQueen;
 
+import static me.mac.chess.Functions.checkMateDetector;
 import static me.mac.chess.Functions.allMoves;
 
 public class Main {
@@ -26,23 +26,23 @@ public class Main {
             {"2", "♟", "♟", "♟", "♟", "♟", "♟", "♟", "♟", "2"},
             {"3", "#", "#", "#", "#", "#", "#", "#", "#", "3"},
             {"4", "#", "#", "#", "#", "#", "#", "#", "#", "4"},
-            {"5", "#", "#", "#", "♕", "#", "#", "#", "#", "5"},
-            {"6", "#", "#", "#", "♔", "#", "#", "#", "#", "6"},
+            {"5", "#", "#", "#", "#", "#", "#", "#", "#", "5"},
+            {"6", "#", "#", "#", "#", "#", "#", "#", "#", "6"},
             {"7", "♙", "♙", "♙", "♙", "♙", "♙", "♙", "♙", "7"},
             {"8", "♖", "♘", "♗", "♔", "♕", "♗", "♘", "♖", "8"},
             {" ", "A", "B", "C", "D", "E", "F", "G", "H", " "}
     };
 
-    // Lists/arrays of important items
+    // Public Static Variables
     public static List<String> whitePiecesList = Arrays.asList("♟", "♜", "♞", "♝", "♛", "♚");
     public static List<String> blackPiecesList = Arrays.asList("♙", "♖", "♘", "♗", "♕", "♔");
     public static List<String> rowList = Arrays.asList("0", "A", "B", "C", "D", "E", "F", "G", "H");
 
-    // Declaring Variables
+    // Variables3
     static String action = "Pick";
     static String input = "null";
     static int row = -1, column = -1, oldRow = -1, oldColumn = -1;
-    static String piece = "", player = "White", enemy = "Black", tempRow = "";
+    static String piece = "", player = "White", enemy = "Black";
     static Boolean allowed = false;
 
 
@@ -59,6 +59,7 @@ public class Main {
         System.out.println(
                 "All moves must be put in this format:\n  -Type the piece position\n  -Return and the next line must be where you want to move it\nGo!\n\n");
 
+        // Infinite loop until broken via chess or resignation
         while (true) {
             // Convert array to string and format it correctly
             String chessBoardString = Arrays.deepToString(chessBoard)
@@ -70,6 +71,7 @@ public class Main {
 
             System.out.println(chessBoardString);
 
+            // Print based on current action
             if (action.equals("Pick")) {
                 System.out.println("Please choose a piece you wish to use");
                 System.out.println("It is " + player + "'s turn!");
@@ -77,8 +79,10 @@ public class Main {
                 System.out.println("Please choose a position you wish to move the piece to");
             }
 
+            // define current input, into upperCase
             input = scan.nextLine().toUpperCase();
-            // Allow to change piece in use by pressing Q
+
+            // Cancel Moving, reset action and continue loop.
             if (input.equals("Q") && action.equals("Move")) {
                 System.out.println("\nMoving reset...");
                 action = "Pick";
@@ -87,28 +91,26 @@ public class Main {
                 System.out.println("Wrong Input");
                 continue;
             }
-            // Isolate inputs
-
-            tempRow = input.substring(0, 1);
+            // Define column if matches valid int
             if (input.substring(1, 2).matches("-?\\d+(\\.\\d+)?")) {
                 column = Integer.parseInt(input.substring(1, 2));
+
+                // Check if column is valid & within bounds of board
+                if (column <= 0 || column >= 9) {
+                    System.out.println("Invalid Column");
+                    scan.nextLine();
+                    continue;
+                }
             } else {
                 System.out.println("Invalid Column");
                 continue;
             }
 
-            // Check if valid row
-            if (rowList.contains(tempRow)) {
-                row = rowList.indexOf(tempRow);
+            // Define row if matches valid Row
+            if (rowList.contains(input.substring(0, 1))) {
+                row = rowList.indexOf(input.substring(0, 1));
             } else {
                 System.out.println("Invalid Row");
-                scan.nextLine();
-                continue;
-            }
-
-            // Check if valid column
-            if (column <= 0 || column >= 9) {
-                System.out.println("Invalid Column");
                 scan.nextLine();
                 continue;
             }
@@ -274,7 +276,7 @@ public class Main {
                     for (String value : moveList) {
                         if (allPlayerKingMoves.contains(value)) count--;
                     }
-                    if (count == 0 && checkMateDetector(chessBoard, player, kingPosition)) {
+                    if (count == 0 && checkMateDetector(chessBoard, player, kingPosition, kingRow, kingColumn)) {
                         System.out.println("\n\n\n\n\nGame is over! " + player + " has won!\n Good Game!");
                         break;
                     }

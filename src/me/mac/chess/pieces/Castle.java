@@ -9,10 +9,8 @@ public class Castle {
     public static List<String> moveCastle(int column, int row, String player, String[][] board) {
         List<String> moveList = new ArrayList<>();
 
-        List<String> playerArray = whitePiecesList;
-        if (player.equals("Black")) playerArray = blackPiecesList;
-        List<String> enemyArray = blackPiecesList;
-        if (player.equals("Black")) enemyArray = whitePiecesList;
+        List<String> playerArray = (player.equals("Black")) ? blackPiecesList : whitePiecesList;
+        List<String> enemyArray = (player.equals("Black")) ? whitePiecesList : blackPiecesList;
 
         // Castle Up
         for (int i = column + 1; i <= 8; i++) {

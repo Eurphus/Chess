@@ -9,8 +9,7 @@ public class Horse {
     public static List<String> moveHorse(int column, int row, String player, String[][] board) {
         List<String> moveList = new ArrayList<>();
 
-        List<String> playerArray = whitePiecesList;
-        if (player.equals("Black")) playerArray = blackPiecesList;
+        List<String> playerArray = (player.equals("Black")) ? blackPiecesList : whitePiecesList;
 
         int[][] combinations = {{1, 2}, {2, 1}, {2, -1}, {1, -2}, {-1, -2}, {-2, -1}, {-2, 1}, {-1, 2}};
         int horizontal, vertical;
@@ -22,7 +21,6 @@ public class Horse {
                     moveList.add(rowList.get(horizontal) + vertical);
             }
         }
-
         return moveList;
     }
 }
