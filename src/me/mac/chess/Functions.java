@@ -12,8 +12,7 @@ import static me.mac.chess.pieces.King.moveKing;
 import static me.mac.chess.pieces.Pawn.movePawn;
 import static me.mac.chess.pieces.Queen.moveQueen;
 
-// Extra class for additio
-// nal important functions
+// Extra class for additional important functions
 public class Functions {
 
     // Find all possible moves from all pieces within a given chessBoard & player
