@@ -6,7 +6,9 @@ import java.util.List;
 import static me.mac.chess.Main.*;
 
 public class Pawn {
+    // Return all possible moves for a specific Pawn
     public static List<String> movePawn(int column, int row, String player, String[][] board) {
+        // Define initial moveList
         List<String> moveList = new ArrayList<>();
 
         // White Moves
@@ -18,9 +20,11 @@ public class Pawn {
             if (column == 2 && board[column + 2][row].equals("#")) {
                 moveList.add(rowList.get(row) + (column + 2));
             }
+            // Go up and take a piece diagonally
             if (blackPiecesList.contains(board[column + 1][row + 1])) {
                 moveList.add(rowList.get(row + 1) + (column + 1));
             }
+            // Go up and take a piece diagonally
             if (blackPiecesList.contains(board[column + 1][row - 1])) {
                 moveList.add(rowList.get(row - 1) + (column + 1));
             }
@@ -33,9 +37,11 @@ public class Pawn {
             if (column == 7 && board[column - 2][row].equals("#")) {
                 moveList.add(rowList.get(row) + (column - 2));
             }
+            // Go up and take a piece diagonally
             if (whitePiecesList.contains(board[column - 1][row - 1])) {
                 moveList.add(rowList.get(row - 1) + (column - 1));
             }
+            // Go up and take a piece diagonally
             if (whitePiecesList.contains(board[column - 1][row + 1])) {
                 moveList.add(rowList.get(row + 1) + (column - 1));
             }

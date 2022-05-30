@@ -6,9 +6,12 @@ import java.util.List;
 import static me.mac.chess.Main.*;
 
 public class Queen {
+    // Return all possible moves for a specific Queen
     public static List<String> moveQueen(int column, int row, String player, String[][] board) {
-        ArrayList<String> moveList = new ArrayList<>();
+        // Define initial moveList
+        List<String> moveList = new ArrayList<>();
 
+        // Define player & enemy piece arrays
         List<String> playerArray = (player.equals("Black")) ? blackPiecesList : whitePiecesList;
         List<String> enemyArray = (player.equals("Black")) ? whitePiecesList : blackPiecesList;
 
