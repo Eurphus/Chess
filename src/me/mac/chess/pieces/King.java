@@ -5,9 +5,9 @@ import java.util.List;
 
 import static me.mac.chess.Main.*;
 
-public class King {
+public final class King {
     // Return all possible moves for a specific King
-    public static List<String> moveKing(int column, int row, String player, String[][] board) {
+    public static List<String> moveKing(int column, int row, String player, String[]... board) {
         // Define initial moveList
         List<String> moveList = new ArrayList<>();
 
@@ -23,7 +23,7 @@ public class King {
             horizontal = row + combinations[i][0];
             vertical = column + combinations[i][1];
 
-            // Checks if this specific row/column combination is possible - Not oustide board or blocked by piece.
+            // Checks if this specific row/column combination is possible - Not outside board or blocked by piece.
             if (horizontal >= 1 && horizontal <= 8 && vertical >= 1 && vertical <= 8) {
                 if (!playerArray.contains(board[vertical][horizontal]))
                     moveList.add(rowList.get(horizontal) + vertical);

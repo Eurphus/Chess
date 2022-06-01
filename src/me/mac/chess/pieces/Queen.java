@@ -5,9 +5,9 @@ import java.util.List;
 
 import static me.mac.chess.Main.*;
 
-public class Queen {
+public final class Queen {
     // Return all possible moves for a specific Queen
-    public static List<String> moveQueen(int column, int row, String player, String[][] board) {
+    public static List<String> moveQueen(int column, int row, String player, String[]... board) {
         // Define initial moveList
         List<String> moveList = new ArrayList<>();
 

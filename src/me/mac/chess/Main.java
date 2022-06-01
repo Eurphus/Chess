@@ -13,9 +13,9 @@ import static me.mac.chess.pieces.King.moveKing;
 import static me.mac.chess.pieces.Pawn.movePawn;
 import static me.mac.chess.pieces.Queen.moveQueen;
 
-public class Main {
+public final class Main {
     // Declare Main Board
-    static String[][] chessBoard = {
+     static final String[][] chessBoard = {
             {" ", "A", "B", "C", "D", "E", "F", "G", "H", " "},
             {"1", "♜", "♞", "♝", "♛", "♚", "♝", "♞", "♜", "1"},
             {"2", "♟", "♟", "#", "♟", "♟", "♟", "♟", "♟", "2"},
@@ -29,9 +29,9 @@ public class Main {
     };
 
     // Public Static Variables
-    public static List<String> whitePiecesList = Arrays.asList("♟", "♜", "♞", "♝", "♛", "♚");
-    public static List<String> blackPiecesList = Arrays.asList("♙", "♖", "♘", "♗", "♕", "♔");
-    public static List<String> rowList = Arrays.asList("0", "A", "B", "C", "D", "E", "F", "G", "H");
+    public static final List<String> whitePiecesList = Arrays.asList("♟", "♜", "♞", "♝", "♛", "♚");
+    public static final List<String> blackPiecesList = Arrays.asList("♙", "♖", "♘", "♗", "♕", "♔");
+    public static final List<String> rowList = Arrays.asList("0", "A", "B", "C", "D", "E", "F", "G", "H");
 
     // Variables
     static String action = "Pick";
@@ -40,7 +40,7 @@ public class Main {
     static String piece = "", player = "White", enemy = "Black";
     static Boolean allowed = false;
 
-    public static void main(String[] args) {
+    public static void main(String... args) {
         // Define Scanner
         Scanner scan = new Scanner(System.in);
         // Clear Console & define variables
@@ -128,7 +128,7 @@ public class Main {
             }
 
             // Cancel Moving, reset action and continue loop.
-            if ((input.equalsIgnoreCase("q") | input.equalsIgnoreCase("quit") || input.equalsIgnoreCase("stop")) && action.equals("Move")) {
+            if ((input.equalsIgnoreCase("q") || input.equalsIgnoreCase("quit") || input.equalsIgnoreCase("stop")) && action.equals("Move")) {
                 System.out.println("\nMoving reset...");
                 action = "Pick";
                 continue;
@@ -236,7 +236,7 @@ public class Main {
                 }
 
                 // If kingPosition is  still undefined, search through the entire board to find it
-                if (kingPosition.equals("")) {
+                if (kingPosition.isEmpty()) {
                     for (int i = 0; i < chessBoard.length; i++) {
                         for (int q = 0; q < chessBoard[i].length; q++) {
                             if (chessBoard[q][i].equals(kingPiece)) {

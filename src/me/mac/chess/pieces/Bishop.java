@@ -5,7 +5,7 @@ import java.util.List;
 
 import static me.mac.chess.Main.*;
 
-public class Bishop {
+public final class Bishop {
     // Return all possible moves for a specific Bishop
     public static List<String> moveBishop(int column, int row, String player, String[]... board) {
         // Define initial moveList

@@ -14,7 +14,7 @@ import static me.mac.chess.pieces.Pawn.movePawn;
 import static me.mac.chess.pieces.Queen.moveQueen;
 
 // Extra class for additional important functions
-public class Functions {
+public final class Functions {
 
     // Find all possible moves from all pieces within a given chessBoard & player
     public static List<String> allMoves(String[][] board, String player) {
