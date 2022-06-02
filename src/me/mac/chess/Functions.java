@@ -1,10 +1,12 @@
 package me.mac.chess;
 
+// Java Imports
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
+// Project Imports
 import static me.mac.chess.Main.*;
 import static me.mac.chess.pieces.Bishop.moveBishop;
 import static me.mac.chess.pieces.Castle.moveCastle;
@@ -19,37 +21,23 @@ public final class Functions {
     // Find all possible moves from all pieces within a given chessBoard & player
     public static List<String> allMoves(String[][] board, String player) {
         List<String> moveList = new ArrayList<>();
+        List<String> playerPieceList = (player.equals("Black")) ? blackPiecesList : whitePiecesList;
 
         String piece;
-        // Find all white moves
-        if (player.equals("White")) {
-            // Goes through every single position on the board finding white pieces, then adding their available moves to the total moveList
-            for (int i = 0; i < board.length; i++) {
-                for (int q = 0; q < board[i].length; q++) {
-                    piece = board[i][q];
-                    switch (piece) {
-                        case "♟" -> moveList.addAll(movePawn(i, q, player, board));
-                        case "♜" -> moveList.addAll(moveCastle(i, q, player, board));
-                        case "♞" -> moveList.addAll(moveHorse(i, q, player, board));
-                        case "♝" -> moveList.addAll(moveBishop(i, q, player, board));
-                        case "♛" -> moveList.addAll(moveQueen(i, q, player, board));
-                        case "♚" -> moveList.addAll(moveKing(i, q, player, board));
-                    }
-                }
-            }
-        } else { // Find all black moves
-            // Goes through every single position on the board finding black pieces, then adding their available moves to the total moveList
-            for (int i = 0; board.length > i; i++) {
-                for (int q = 0; q < board[i].length; q++) {
-                    piece = board[i][q];
-                    switch (piece) {
-                        case "♙" -> moveList.addAll(movePawn(i, q, player, board));
-                        case "♖" -> moveList.addAll(moveCastle(i, q, player, board));
-                        case "♘" -> moveList.addAll(moveHorse(i, q, player, board));
-                        case "♗" -> moveList.addAll(moveBishop(i, q, player, board));
-                        case "♕" -> moveList.addAll(moveQueen(i, q, player, board));
-                        case "♔" -> moveList.addAll(moveKing(i, q, player, board));
-                    }
+        // Goes through every single position on the board finding white pieces, then adding their available moves to the total moveList
+        for (int i = 0; i < board.length; i++) {
+            for (int q = 0; q < board[i].length; q++) {
+                piece = board[i][q];
+
+                // If a piece isn't a piece or isn't the players piece, ignore it
+                if (!playerPieceList.contains(piece)) continue;
+                switch (piece) {
+                    case "♟", "♙" -> moveList.addAll(movePawn(i, q, player, board));
+                    case "♜", "♖" -> moveList.addAll(moveCastle(i, q, player, board));
+                    case "♞", "♘" -> moveList.addAll(moveHorse(i, q, player, board));
+                    case "♝", "♗" -> moveList.addAll(moveBishop(i, q, player, board));
+                    case "♛", "♕" -> moveList.addAll(moveQueen(i, q, player, board));
+                    case "♚", "♔" -> moveList.addAll(moveKing(i, q, player, board));
                 }
             }
         }
@@ -119,9 +107,10 @@ public final class Functions {
         // Return that checkMate has been detected unless proven otherwise with return false
         return true;
     }
+
     // Method for clearing console via spamming
     public static void clearConsole() {
-        System.out.println("\n".repeat(500));
+        System.out.println("\n".repeat(1000));
     }
 
     // Prints the help menu for chess

@@ -1,8 +1,10 @@
 package me.mac.chess.pieces;
 
+// Java Imports
 import java.util.ArrayList;
 import java.util.List;
 
+// Project Imports
 import static me.mac.chess.Main.*;
 
 public final class Bishop {

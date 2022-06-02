@@ -1,10 +1,12 @@
 package me.mac.chess;
 
+// Java Imports
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
+// Project Imports
 import static me.mac.chess.Functions.*;
 import static me.mac.chess.pieces.Bishop.moveBishop;
 import static me.mac.chess.pieces.Castle.moveCastle;
@@ -13,17 +15,18 @@ import static me.mac.chess.pieces.King.moveKing;
 import static me.mac.chess.pieces.Pawn.movePawn;
 import static me.mac.chess.pieces.Queen.moveQueen;
 
+// Main Chess
 public final class Main {
     // Declare Main Board
      static final String[][] chessBoard = {
             {" ", "A", "B", "C", "D", "E", "F", "G", "H", " "},
             {"1", "♜", "♞", "♝", "♛", "♚", "♝", "♞", "♜", "1"},
-            {"2", "♟", "♟", "#", "♟", "♟", "♟", "♟", "♟", "2"},
+            {"2", "♟", "♟", "♟", "♟", "♟", "♟", "♟", "♟", "2"},
             {"3", "#", "#", "#", "#", "#", "#", "#", "#", "3"},
             {"4", "#", "#", "#", "#", "#", "#", "#", "#", "4"},
             {"5", "#", "#", "#", "#", "#", "#", "#", "#", "5"},
             {"6", "#", "#", "#", "#", "#", "#", "#", "#", "6"},
-            {"7", "♙", "#", "#", "♙", "♙", "♙", "♙", "♙", "7"},
+            {"7", "♙", "♙", "♙", "♙", "♙", "♙", "♙", "♙", "7"},
             {"8", "♖", "♘", "♗", "♔", "♕", "♗", "♘", "♖", "8"},
             {" ", "A", "B", "C", "D", "E", "F", "G", "H", " "}
     };
@@ -31,7 +34,7 @@ public final class Main {
     // Public Static Variables
     public static final List<String> whitePiecesList = Arrays.asList("♟", "♜", "♞", "♝", "♛", "♚");
     public static final List<String> blackPiecesList = Arrays.asList("♙", "♖", "♘", "♗", "♕", "♔");
-    public static final List<String> rowList = Arrays.asList("0", "A", "B", "C", "D", "E", "F", "G", "H");
+    public static final List<String> rowList = Arrays.asList("BB", "A", "B", "C", "D", "E", "F", "G", "H");
 
     // Variables
     static String action = "Pick";
@@ -51,9 +54,12 @@ public final class Main {
 
         // Infinite loop until broken via an end rule or exiting
         while (true) {
+            // If helpMenu is active, disallow other actions and display helpMenu & accepts input
             if(helpMenu) {
                 clearConsole();
                 printHelp();
+
+                // Attempt to get an int without error
                 try {
                     initial = scan.nextInt();
                 } catch (Exception e) {
@@ -62,6 +68,8 @@ public final class Main {
                     printHelp();
                     continue;
                 }
+
+                // If initial is = 1, clear console, set helpMenu to false and continue.
                 if(initial == 1) {
                     helpMenu=false;
                     clearConsole();
@@ -69,10 +77,13 @@ public final class Main {
                 }
                 continue;
             }
-            // If the game is not active, run the menu
+            // If the game is not active, run the starting menu
             if(!active) {
+                // Clear console and print menu
                 clearConsole();
                 System.out.println("Welcome to Chess!\nPlease select an option:\n  1: Play\n  2: Help\n  3: Exit");
+
+                // Attempt to get int input
                 try {
                     initial = scan.nextInt();
                 } catch (Exception e) {
@@ -80,15 +91,19 @@ public final class Main {
                     clearConsole();
                     continue;
                 }
+
+                // If initial is == 1, activate the game
                 if(initial == 1) {
                     active=true;
                     clearConsole();
                     scan.nextLine();
                     continue;
                 } else if (initial == 2) {
+                    // If initial is ==2 , activate the help menu
                     helpMenu = true;
                     continue;
                 } else if (initial == 3) {
+                    // If initial is == 3, break the JVM and display exiting.
                     System.out.println("Exiting...");
                     System.exit(1);
                     break;
@@ -278,8 +293,9 @@ public final class Main {
                     player = "White";
                     enemy = "Black";
                 }
+                // Both variables are reversed from now on
 
-                //
+                // Reset action back to pick for next player
                 action = "Pick";
 
                 //
