@@ -1,12 +1,12 @@
 package me.mac.chess;
 
 // Java Imports
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
-// Project Imports
 import static me.mac.chess.Functions.*;
 import static me.mac.chess.pieces.Bishop.moveBishop;
 import static me.mac.chess.pieces.Castle.moveCastle;
