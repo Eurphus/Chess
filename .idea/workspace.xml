@@ -4,7 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7318d616-d80f-4390-8191-2eb4c74e10cd" name="Changes" comment="- Added back removed characters that were removed for debugging&#10;- More commenting&#10;- Increased cleared lines by clearConsole();&#10;- Made allMoves() more efficient and cleaner&#10;- Commented imports">
+    <list default="true" id="7318d616-d80f-4390-8191-2eb4c74e10cd" name="Changes" comment="- Added intellij files">
+      <change afterPath="$PROJECT_DIR$/.idea/discord.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Chess.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -143,7 +151,7 @@
       <workItem from="1654273767499" duration="35000" />
       <workItem from="1654274032008" duration="55000" />
       <workItem from="1654619125190" duration="599000" />
-      <workItem from="1655396187397" duration="858000" />
+      <workItem from="1655396187397" duration="1286000" />
     </task>
     <task id="LOCAL-00001" summary="Initial">
       <created>1648480451537</created>
@@ -215,7 +223,14 @@
       <option name="project" value="LOCAL" />
       <updated>1654190269989</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="- Added intellij files">
+      <created>1655399765132</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1655399765132</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -256,7 +271,8 @@
     <MESSAGE value="- Fixed numerous issues&#10;- Made checkMateDetector only detect the current players moves, not the enemies which can prevent checkmating in select situations.&#10;- More commenting&#10;- Added clearConsole and printHelp()&#10;- Added a help menu&#10;- Changed the introduction to the game&#10;- Changed how misinputs or errors are handled. Now sends the error and adds a 2 second delay.&#10;- Many other changes" />
     <MESSAGE value="- I honestly don't know what I did to half these things, but I was finding and fixing supposed problems from random Intellji code inspectors." />
     <MESSAGE value="- Added back removed characters that were removed for debugging&#10;- More commenting&#10;- Increased cleared lines by clearConsole();&#10;- Made allMoves() more efficient and cleaner&#10;- Commented imports" />
-    <option name="LAST_COMMIT_MESSAGE" value="- Added back removed characters that were removed for debugging&#10;- More commenting&#10;- Increased cleared lines by clearConsole();&#10;- Made allMoves() more efficient and cleaner&#10;- Commented imports" />
+    <MESSAGE value="- Added intellij files" />
+    <option name="LAST_COMMIT_MESSAGE" value="- Added intellij files" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
