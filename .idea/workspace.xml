@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="7318d616-d80f-4390-8191-2eb4c74e10cd" name="Changes" comment="- Added back removed characters that were removed for debugging&#10;- More commenting&#10;- Increased cleared lines by clearConsole();&#10;- Made allMoves() more efficient and cleaner&#10;- Commented imports">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeInsightWorkspaceSettings">
+    <option name="optimizeImportsOnTheFly" value="true" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="ProjectErrors" />
+  </component>
+  <component name="ProjectId" id="266rqumBCGmZgAg43sJYGtHFg22" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Downloaded.Files.Path.Enabled": "true",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "ToolWindowRun.ShowToolbar": "false",
+    "WebServerToolWindowFactoryState": "false",
+    "dart.analysis.tool.window.visible": "false",
+    "extract.method.default.visibility": "private",
+    "last_opened_file_path": "/home/peter/IdeaProjects/Chess",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="me.mac.chess.Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="me.mac.chess.Main" />
+      <module name="Chess" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="me.mac.chess.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.me.mac.chess.Main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="7318d616-d80f-4390-8191-2eb4c74e10cd" name="Changes" comment="" />
+      <created>1646755074265</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1646755074265</updated>
+      <workItem from="1646755075873" duration="2000000" />
+      <workItem from="1647880041530" duration="1789000" />
+      <workItem from="1647883653490" duration="67000" />
+      <workItem from="1648141545401" duration="434000" />
+      <workItem from="1648144191949" duration="23518000" />
+      <workItem from="1648572501067" duration="1658000" />
+      <workItem from="1648735461997" duration="6329000" />
+      <workItem from="1648751526432" duration="4556000" />
+      <workItem from="1649170939612" duration="808000" />
+      <workItem from="1649178157971" duration="5391000" />
+      <workItem from="1649207816633" duration="2580000" />
+      <workItem from="1649256488331" duration="5767000" />
+      <workItem from="1649267279979" duration="50000" />
+      <workItem from="1649268366661" duration="7846000" />
+      <workItem from="1649687103239" duration="2954000" />
+      <workItem from="1649701049486" duration="5857000" />
+      <workItem from="1649780430562" duration="682000" />
+      <workItem from="1649782262643" duration="11975000" />
+      <workItem from="1649941474509" duration="3249000" />
+      <workItem from="1649947140722" duration="2593000" />
+      <workItem from="1650649277999" duration="343000" />
+      <workItem from="1651154923488" duration="313000" />
+      <workItem from="1651162172952" duration="1765000" />
+      <workItem from="1651163952763" duration="1831000" />
+      <workItem from="1651170180240" duration="660000" />
+      <workItem from="1651684503259" duration="1325000" />
+      <workItem from="1651686828551" duration="3486000" />
+      <workItem from="1651768983956" duration="3270000" />
+      <workItem from="1652804612872" duration="382000" />
+      <workItem from="1653927718139" duration="1907000" />
+      <workItem from="1653929640353" duration="1951000" />
+      <workItem from="1653933035567" duration="3929000" />
+      <workItem from="1654007955931" duration="8206000" />
+      <workItem from="1654094676649" duration="1757000" />
+      <workItem from="1654096508260" duration="49000" />
+      <workItem from="1654096571088" duration="57000" />
+      <workItem from="1654096640417" duration="1215000" />
+      <workItem from="1654102042735" duration="1346000" />
+      <workItem from="1654105655795" duration="2918000" />
+      <workItem from="1654187347590" duration="3603000" />
+      <workItem from="1654273767499" duration="35000" />
+      <workItem from="1654274032008" duration="55000" />
+      <workItem from="1654619125190" duration="599000" />
+      <workItem from="1655396187397" duration="858000" />
+    </task>
+    <task id="LOCAL-00001" summary="Initial">
+      <created>1648480451537</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1648480451537</updated>
+    </task>
+    <task id="LOCAL-00002" summary="- Reformatted Code&#10;- Fixing wrong column/row">
+      <created>1648573441044</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1648573441044</updated>
+    </task>
+    <task id="LOCAL-00003" summary="- Updated file structure&#10;  - All pieces in individual files&#10;  - added a proper src&#10;  - Other&#10;- Added stalemate detection&#10;- Turned checkMateDetector into Method">
+      <created>1649943023428</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1649943023429</updated>
+    </task>
+    <task id="LOCAL-00004" summary="- All problems fixed. To my knowledge this will be the final version other than additional modifications and chess features such as resigning and agreed draws.">
+      <created>1649944517098</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1649944517099</updated>
+    </task>
+    <task id="LOCAL-00005" summary="- All problems fixed. To my knowledge this will be the final version other than additional modifications and chess features such as resigning and agreed draws.&#10;- Removed unneeeded variables: tempRow&#10;- Optimized defining playerArray &amp; enemyArray in pieces">
+      <created>1651165702527</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1651165702527</updated>
+    </task>
+    <task id="LOCAL-00006" summary="- All problems fixed. To my knowledge this will be the final version other than additional modifications and chess features such as resigning and agreed draws.&#10;- Removed unneeeded variables: tempRow&#10;- Optimized defining playerArray &amp; enemyArray in pieces&#10;- Commented code more&#10;- Made things more efficient &amp; clearer">
+      <created>1653931638397</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1653931638397</updated>
+    </task>
+    <task id="LOCAL-00007" summary="- Fixed an accidental return on comments">
+      <created>1653931854740</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1653931854740</updated>
+    </task>
+    <task id="LOCAL-00008" summary="- Fixed numerous issues&#10;- Made checkMateDetector only detect the current players moves, not the enemies which can prevent checkmating in select situations.&#10;- More commenting&#10;- Added clearConsole and printHelp()&#10;- Added a help menu&#10;- Changed the introduction to the game&#10;- Changed how misinputs or errors are handled. Now sends the error and adds a 2 second delay.&#10;- Many other changes">
+      <created>1654106362255</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1654106362255</updated>
+    </task>
+    <task id="LOCAL-00009" summary="- I honestly don't know what I did to half these things, but I was finding and fixing supposed problems from random Intellji code inspectors.">
+      <created>1654107735045</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1654107735045</updated>
+    </task>
+    <task id="LOCAL-00010" summary="- Added back removed characters that were removed for debugging&#10;- More commenting&#10;- Increased cleared lines by clearConsole();&#10;- Made allMoves() more efficient and cleaner&#10;- Commented imports">
+      <created>1654190269989</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1654190269989</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Initial" />
+    <MESSAGE value="- Reformatted Code&#10;- Fixing wrong column/row" />
+    <MESSAGE value="- Reformatted Code&#10;- Fixing wrong column/row&#10;- Changed moveWhite/BlackPawn into a single movePawn method&#10;- moveKing&#10;- allMoves&#10;- Added check checking&#10;- Added checkmate&#10;- More idfk" />
+    <MESSAGE value="- Updated file structure&#10;  - All pieces in individual files&#10;  - added a proper src&#10;  - Other&#10;- Added stalemate detection&#10;- Turned checkMateDetector into Method" />
+    <MESSAGE value="- All problems fixed. To my knowledge this will be the final version other than additional modifications and chess features such as resigning and agreed draws." />
+    <MESSAGE value="- All problems fixed. To my knowledge this will be the final version other than additional modifications and chess features such as resigning and agreed draws.&#10;- Removed unneeeded variables: tempRow&#10;- Optimized defining playerArray &amp; enemyArray in pieces" />
+    <MESSAGE value="- All problems fixed. To my knowledge this will be the final version other than additional modifications and chess features such as resigning and agreed draws.&#10;- Removed unneeeded variables: tempRow&#10;- Optimized defining playerArray &amp; enemyArray in pieces&#10;- Commented code more&#10;- Made things more efficient &amp; clearer" />
+    <MESSAGE value="- Fixed an accidental return on comments" />
+    <MESSAGE value="- Fixed numerous issues&#10;- Made checkMateDetector only detect the current players moves, not the enemies which can prevent checkmating in select situations.&#10;- More commenting&#10;- Added clearConsole and printHelp()&#10;- Added a help menu&#10;- Changed the introduction to the game&#10;- Changed how misinputs or errors are handled. Now sends the error and adds a 2 second delay.&#10;- Many other changes" />
+    <MESSAGE value="- I honestly don't know what I did to half these things, but I was finding and fixing supposed problems from random Intellji code inspectors." />
+    <MESSAGE value="- Added back removed characters that were removed for debugging&#10;- More commenting&#10;- Increased cleared lines by clearConsole();&#10;- Made allMoves() more efficient and cleaner&#10;- Commented imports" />
+    <option name="LAST_COMMIT_MESSAGE" value="- Added back removed characters that were removed for debugging&#10;- More commenting&#10;- Increased cleared lines by clearConsole();&#10;- Made allMoves() more efficient and cleaner&#10;- Commented imports" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.UnsupportedOperationException" package="java.lang" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.ArrayIndexOutOfBoundsException" package="java.lang" />
+          <option name="timeStamp" value="2" />
+        </breakpoint>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.util.ConcurrentModificationException" package="java.util" />
+          <option name="timeStamp" value="3" />
+        </breakpoint>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.IllegalStateException" package="java.lang" />
+          <option name="timeStamp" value="4" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
