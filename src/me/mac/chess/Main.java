@@ -1,12 +1,23 @@
 package me.mac.chess;
 
 // Java Imports
+
+import javafx.application.Application;
+import javafx.geometry.HPos;
+import javafx.geometry.VPos;
+import javafx.scene.Scene;
+import javafx.scene.control.Control;
+import javafx.scene.control.Label;
+import javafx.scene.layout.*;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.stage.Stage;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
-// Project Imports
 import static me.mac.chess.Functions.*;
 import static me.mac.chess.pieces.Bishop.moveBishop;
 import static me.mac.chess.pieces.Castle.moveCastle;
@@ -16,7 +27,7 @@ import static me.mac.chess.pieces.Pawn.movePawn;
 import static me.mac.chess.pieces.Queen.moveQueen;
 
 // Main Chess
-public final class Main {
+public class Main extends Application {
     // Declare Main Board
      static final String[][] chessBoard = {
             {" ", "A", "B", "C", "D", "E", "F", "G", "H", " "},
@@ -43,7 +54,64 @@ public final class Main {
     static String piece = "", player = "White", enemy = "Black";
     static Boolean allowed = false;
 
+    public void start(Stage primaryStage) {
+        primaryStage.setTitle("Chess");
+
+        GridPane grid = new GridPane();
+
+        String colour;
+        for(int x=0; x < 10; x++) {
+            for(int y=0; y < 10; y++) {
+                if((x == 0 && y == 0) || (x == 9 && y==0) || (x == 0 && y == 9) || (x == 9 && y == 9)) continue;
+                StackPane tmp = new StackPane();
+                if(x == 0 ||y == 0 || x == 9 | y == 9) {
+                    colour = " white";
+                    String letter;
+                    if(x == 0 || x == 9) {
+                        char row = (char) (64 + y);
+                        letter = Character.toString(row);
+                    } else {
+                        letter = Integer.toString(9 - x);
+                        System.out.println(letter);
+                    }
+                    Label sideLabel = new Label(letter);
+                    sideLabel.setFont(new Font("Arial", 60));
+                    tmp.getChildren().addAll(sideLabel);
+                } else {
+                    if(x == 1 || y == 1 || x == 8 || y == 8) {
+                        tmp.setBorder(new Border(new BorderStroke(Color.BLACK,
+                                BorderStrokeStyle.SOLID, CornerRadii.EMPTY, BorderWidths.DEFAULT)));
+                    }
+                    if(x % 2 == 0) {
+                        if(y % 2 == 0) {
+                            colour = "white";
+                        } else {
+                            colour = "black";
+                        }
+                    } else {
+                        if(y % 2 != 0) {
+                            colour = "white";
+                        } else {
+                            colour = "black";
+                        }
+                    }
+                }
+                System.out.println("Added:" + x + " " + y);
+                tmp.setStyle("-fx-background-color: " + colour + ";");
+                grid.add(tmp, y, x);
+            }
+        }
+        for (int i = 0; i <= 9; i++) {
+            grid.getRowConstraints().add(new RowConstraints(5, Control.USE_COMPUTED_SIZE, Double.POSITIVE_INFINITY, Priority.ALWAYS, VPos.CENTER, true));
+            grid.getColumnConstraints().add(new ColumnConstraints(5, Control.USE_COMPUTED_SIZE, Double.POSITIVE_INFINITY, Priority.ALWAYS, HPos.CENTER, true));
+        }
+        primaryStage.setScene(new Scene(grid, 1000, 1000));
+        primaryStage.show();
+    }
+
     public static void main(String... args) {
+        launch(args);
+
         // Define Scanner
         Scanner scan = new Scanner(System.in);
         // Clear Console & define variables
