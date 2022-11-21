@@ -27,3 +27,5 @@ Basic chess program that runs chess in the Java console
 
 
 Developed by Peter Macdonald for a school assignment. Feel free to "Borrow" my code if you also want it for a school assignment. It's an MIT license
+
+https://opengameart.org/content/chess-pieces-and-board-squares - Assets used
