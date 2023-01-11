@@ -2,22 +2,30 @@ package me.mac.chess;
 
 // Java Imports
 
-import static javafx.application.Application.launch;
+import me.mac.chess.pieces.king;
 
 public class Main {
     public static void main(String... args) {
-        String[][] chessBoard = {
-                {" ", "A", "B", "C", "D", "E", "F", "G", "H", " "},
-                {"1", "♜", "♞", "♝", "♛", "♚", "♝", "♞", "♜", "1"},
-                {"2", "♟", "♟", "♟", "♟", "♟", "♟", "♟", "♟", "2"},
-                {"3", "#", "#", "#", "#", "#", "#", "#", "#", "3"},
-                {"4", "#", "#", "#", "#", "#", "#", "#", "#", "4"},
-                {"5", "#", "#", "#", "#", "#", "#", "#", "#", "5"},
-                {"6", "#", "#", "#", "#", "#", "#", "#", "#", "6"},
-                {"7", "♙", "♙", "♙", "♙", "♙", "♙", "♙", "♙", "7"},
-                {"8", "♖", "♘", "♗", "♔", "♕", "♗", "♘", "♖", "8"},
-                {" ", "A", "B", "C", "D", "E", "F", "G", "H", " "}
+        chessPiece[][] chessBoard = {
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, new king(1, 5, true), new king(1, 6, true), null, null, null},
+                {null, null, null, null, null, new king(2, 5, false), null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null}
         };
-        launch(args);
+        // launch(args);
+        for(int x = 0; x < chessBoard.length; x++) {
+            for(int y = 0; y < chessBoard[x].length; y++) {
+                if(chessBoard[x][y] != null) {
+                    System.out.println(chessBoard[x][y].row);
+                    System.out.println(chessBoard[x][y].column);
+                    System.out.println(chessBoard[x][y].moveList(chessBoard));
+                }
+            }
+        }
     }
 }
