@@ -4,14 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7318d616-d80f-4390-8191-2eb4c74e10cd" name="Changes" comment="Big Update Coming&#10;What is planned:&#10;  - JavaFX GUI rather than text based&#10;  - Option for single or double player&#10;  - Added AI / Algorithms for single player modes&#10;  &#10;What was just added:&#10;  - Basic JavaFX GUI with 8x8 grid with row / columns&#10;  - Code not functional right now with the grid">
-      <change afterPath="$PROJECT_DIR$/src/me/mac/chess/Functions.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/me/mac/chess/chessPiece.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/me/mac/chess/data.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/me/mac/chess/pieces/bishop.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/me/mac/chess/pieces/king.java" afterDir="false" />
+    <list default="true" id="7318d616-d80f-4390-8191-2eb4c74e10cd" name="Changes" comment="- Adding Bishop and continued updating code">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/me/mac/chess/Board.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/me/mac/chess/ChessBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/me/mac/chess/ChessBoard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/me/mac/chess/Functions.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/me/mac/chess/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/me/mac/chess/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/me/mac/chess/chessPiece.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/me/mac/chess/ChessPiece.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/me/mac/chess/data.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/me/mac/chess/data.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/me/mac/chess/pieces/bishop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/me/mac/chess/pieces/bishop.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/me/mac/chess/pieces/king.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/me/mac/chess/pieces/king.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,7 +101,7 @@
     &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
     &quot;extract.method.default.visibility&quot;: &quot;private&quot;,
     &quot;jdk.selected.JAVA_MODULE&quot;: &quot;openjdk-18&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/macdonp003/IdeaProjects/Circle Problem Set&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/macdonp003/IdeaProjects/Chess&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -109,7 +111,8 @@
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
     &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;Errors&quot;
+    &quot;settings.editor.selected.configurable&quot;: &quot;Errors&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
   <component name="RecentsManager">
@@ -209,6 +212,8 @@
       <workItem from="1664386049464" duration="3693000" />
       <workItem from="1664991639962" duration="32000" />
       <workItem from="1669056992788" duration="2306000" />
+      <workItem from="1673548262011" duration="2987000" />
+      <workItem from="1673635383664" duration="2636000" />
     </task>
     <task id="LOCAL-00001" summary="Initial">
       <created>1648480451537</created>

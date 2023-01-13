@@ -1,12 +1,14 @@
 package me.mac.chess.pieces;
 
-import me.mac.chess.chessPiece;
+// Chess File Imports
+
+import me.mac.chess.ChessPiece;
 
 import java.util.ArrayList;
 
 import static me.mac.chess.data.rowList;
 
-public class king extends chessPiece {
+public class king extends ChessPiece {
 
     // Constructor
     public king(int inputRow, int inputColumn, boolean inputWhite) {
@@ -14,7 +16,7 @@ public class king extends chessPiece {
     }
 
 
-    public ArrayList<String> moveList(chessPiece[][] board) {
+    public ArrayList<String> moveList(ChessPiece[][] board) {
         ArrayList<String> moveList = new ArrayList<>();
 
         // All possible moves. Formatted as {row difference, column difference}
@@ -28,12 +30,10 @@ public class king extends chessPiece {
 
             // Checks if this specific row/column combination is possible - Not outside board or blocked by piece.
             if (horizontal >= 1 && horizontal <= 8 && vertical >= 1 && vertical <= 8) {
-                if (board[vertical][horizontal] == null) {
+
+                // Check if surrounding tiles are enemy or empty
+                if (!this.isTeam(board[vertical][horizontal])) {
                     moveList.add(rowList.get(horizontal) + vertical);
-                } else if(board[vertical][horizontal] != null) {
-                    if(!board[vertical][horizontal].white) {
-                        moveList.add(rowList.get(horizontal) + vertical);
-                    }
                 }
             }
         }
