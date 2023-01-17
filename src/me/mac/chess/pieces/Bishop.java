@@ -40,7 +40,7 @@ public final class Bishop {
         }
 
         // Bishop Diagonal Down Right
-        for (int i = column - 1, q = row + 1; (i >= 1 && q >= 8); i--, q++) {
+        for (int i = column - 1, q = row + 1; (i >= 1 && q <= 8); i--, q++) {
             if (playerArray.contains(board[i][q])) {
                 break;
             } else if (enemyArray.contains(board[i][q])) {
